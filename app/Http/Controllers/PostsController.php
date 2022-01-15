@@ -6,7 +6,6 @@ use App\Models\posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-use Illuminate\Support\Facades\DB;
 class PostsController extends Controller
 {
 
@@ -68,10 +67,6 @@ class PostsController extends Controller
 
     public function show_all()
     {
-        // reset all votes
-        // $data = posts::where('upvotes', '!=', 0)->update(['upvotes' => 0]);
-        // $query->explain();
-
         $data = posts::with('comment')->paginate();
         return response($data, 200);
 
