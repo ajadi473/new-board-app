@@ -38,3 +38,6 @@ RUN sail artisan migrate
 WORKDIR /var/www
 
 USER $user
+
+EXPOSE 80
+ENTRYPOINT ["/var/www/docker/run.sh"]
